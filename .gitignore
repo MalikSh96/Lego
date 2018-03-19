@@ -71,4 +71,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#DBAcess
+
+**/Connector.java
+
 # End of https://www.gitignore.io/api/macos,maven,windows,netbeans
+/nbproject/
