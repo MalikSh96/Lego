@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>How to order a lego house</h1>
-        some text
+        some text to get you started with helping
         
     </body>
 </html>
