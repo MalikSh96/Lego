@@ -12,6 +12,10 @@ public class Bricks
     private int width;
     private int height;
 
+    public Bricks() 
+    {
+    }
+
     public Bricks(int id, String type, int length) 
     {
         this.id = id;
@@ -27,6 +31,11 @@ public class Bricks
         this.width = width;
         this.height = height;
     }  
+
+    public Bricks(int length) 
+    {
+        this.length = length;
+    }
     
     public int getId() 
     {
@@ -53,10 +62,15 @@ public class Bricks
         return height;
     }
 
+    public void setLength(int length) 
+    {
+        this.length = length;
+    }
+    
     @Override
     public String toString() 
     {
         return "BrickID: " + id + "\nBricktype: " + type + "\nBricklength: " + length 
-                + "\nBrickwidth:" + width + "\nBrickheight: " + height;
+                + "\nBrickwidth:" + width + "\nBrickheight: " + height + "\n";
     }
 }

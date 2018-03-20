@@ -17,8 +17,9 @@ public class BrickMapper
     public List<Bricks> getAllBottoms() throws ClassNotFoundException 
     {
         List<Bricks> brick = new ArrayList<>();
-        try {
-             Connection con = Connector.connection();
+        try 
+        {
+            Connection con = Connector.connection();
 
             String sql = "SELECT * FROM useradmin.brickinfo";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -26,7 +27,7 @@ public class BrickMapper
             
             while (resultset.next()) {
                 String name = resultset.getString("type");
-                int length = resultset.getInt("lenght");
+                int length = resultset.getInt("length");
                 int lego_id = resultset.getInt("id");
                 int width = resultset.getInt("width");                
                 int height = resultset.getInt("height");
@@ -40,5 +41,37 @@ public class BrickMapper
             e.printStackTrace();
         }
         return brick;
+    }
+    
+    public int totalLength(String type) throws ClassNotFoundException
+    {
+        Bricks b = new Bricks();
+        int total = 0;
+        try 
+        {
+            Connection con = Connector.connection();
+
+            String sql = "SELECT * FROM useradmin.brickinfo";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet resultset = ps.executeQuery();
+
+            while(resultset.next()) 
+            {
+                String name = resultset.getString("type");
+                int length = resultset.getInt("length");
+                b.setLength(length);
+                if(name.equals(type))
+                {
+                    b = new Bricks(length);
+                    total = b.getLength();
+                    break;
+                }
+            }
+            
+        } catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return total;
     }
 }
