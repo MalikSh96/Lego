@@ -1,4 +1,4 @@
-package Temporary;
+package FunctionLayer;
 
 import DBAccess.BrickMapper;
 import java.util.ArrayList;
@@ -9,11 +9,12 @@ import java.util.ArrayList;
  */
 public class Calculation 
 {
-        BrickMapper b = new BrickMapper();
-        int bigL = 0; //counts amount used
-        int mediumL = 0;
-        int smallL = 0;
-        ArrayList<Integer> bri = new ArrayList<>();
+    private BrickMapper b = new BrickMapper();
+    private int bigL = 0; //counts amount used
+    private int mediumL = 0;
+    private int smallL = 0;
+    private ArrayList<Integer> uneven = new ArrayList<>();
+    private ArrayList<Integer> even = new ArrayList<>();
 
     public Calculation() throws ClassNotFoundException 
     {
@@ -23,13 +24,13 @@ public class Calculation
     }
         
     
-    //1. Calculate the total of bricks to be used
-    //2. Find out how the bottom layer is gonna be structured
+    //1. Calculate the total of bricks to be used for the bottom layer 1-3-5-7
+    //2. Calculate the total of bricks to be used for the layer above bottom 2-4-6-8
     //3. Find out how the second (above bottom) layer is gonna be structured
     
     //To calculate the amount of bricks to be used, just calculate two of the sides, then * them with 2, to cover the last two 
     //1. The total of the length is calculated using the customers desired length and the length of the bricks chosen
-    public ArrayList<Integer> brickTotalLengthBottom(int customerHouseLength) throws ClassNotFoundException
+    public ArrayList<Integer> brickTotalBottom(int customerHouseLength) throws ClassNotFoundException
     {
         /*
         The length of the house will be a total of dots, so for example if a customer
@@ -44,7 +45,6 @@ public class Calculation
         int total = customerHouseLength; //temp
         while(total != 0)
         {
-//            while(total >= 0 && total - bigL > 0)
             while(total >= 0 && total - bigL >= 0)
             {
                 total -= bigL;
@@ -66,23 +66,48 @@ public class Calculation
                 System.out.println("small " + smallCounter);
             }        
         }
-        bri.add(bigCounter);
-        bri.add(mediumCounter);
-        bri.add(smallCounter);
-        return bri;
+        uneven.add(bigCounter);
+        uneven.add(mediumCounter);
+        uneven.add(smallCounter);
+        return uneven;
     }
     
     //2.
-    public int brickTotalLengthOverBottom(int length, int customerHouseLength)
+    public ArrayList<Integer> brickTotalOverBottom(int customerHouseLength)
     {
-        return 0;
+        int mediumCounter = 0;
+        int smallCounter = 0;
+        
+        int total = customerHouseLength; //temp
+        while(total != 0)
+        {
+            while(total >= 0 && total - mediumL >= 0)
+            {
+                total -= mediumL;
+                mediumCounter++;
+                System.out.println("medium " + mediumCounter);
+                
+            }
+            while(total > 0)
+            {
+                total -= smallL;
+                smallCounter++;
+                System.out.println("small " + smallCounter);
+            }        
+        }
+        even.add(mediumCounter);
+        even.add(smallCounter);
+        return even;
     }
     //3.
 
-    @Override
-    public String toString() {
-        return "Calculation{" + "bri=" + bri + '}';
+    public ArrayList<Integer> getUneven() 
+    {
+        return uneven;
     }
-    
-    
+
+    public ArrayList<Integer> getEven() 
+    {
+        return even;
+    }
 }

@@ -17,5 +17,12 @@ public class LogicFacade {
         UserMapper.createUser( user );
         return user;
     }
-
+    
+    public static Calculation Calculate(int CustomerLength) throws ClassNotFoundException
+    {
+        Calculation c = new Calculation();
+        c.brickTotalBottom(CustomerLength);
+        c.brickTotalOverBottom(CustomerLength);
+        return c;
+    }
 }
