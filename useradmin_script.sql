@@ -4,6 +4,7 @@ CREATE DATABASE  IF NOT EXISTS `useradmin`;
 USE `useradmin`;
 
 DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(90) NOT NULL,
@@ -15,8 +16,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES 
-(1,'jens@somewhere.com','jensen','customer'),
-(2,'ken@somewhere.com','kensen','customer'),
-(3,'robin@somewhere.com','batman','employee');
+(1,'malik@sharfo.com','batman','employee');
 UNLOCK TABLES;
 
