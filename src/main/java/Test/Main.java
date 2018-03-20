@@ -13,7 +13,7 @@ public class Main
     {
         Calculation c = new Calculation();
         //int res = c.brickTotalLengthBottom(20);
-        System.out.println("Testing... " + c.brickTotalLengthBottom(20));
+        System.out.println("Testing... " + c.brickTotalLengthBottom(6));
         
         BrickMapper brick = new BrickMapper();
         System.out.println("\n\nAll " + brick.getAllBottoms());

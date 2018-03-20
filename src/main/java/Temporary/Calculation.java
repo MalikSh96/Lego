@@ -45,14 +45,14 @@ public class Calculation
         while(total != 0)
         {
 //            while(total >= 0 && total - bigL > 0)
-            while(total >= 0 && total - bigL > 0)
+            while(total >= 0 && total - bigL >= 0)
             {
                 total -= bigL;
                 bigCounter++;
                 System.out.println("big " + bigCounter);
                 
             }
-            while(total - mediumL > 0 && total >= 0)
+            while(total >= 0 && total - mediumL >= 0)
             {
                 total -= mediumL;
                 mediumCounter++;
