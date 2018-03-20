@@ -12,6 +12,22 @@ public class Bricks
     private int width;
     private int height;
 
+    public Bricks(int id, String type, int length) 
+    {
+        this.id = id;
+        this.type = type;
+        this.length = length;
+    }
+
+    public Bricks(int id, String type, int length, int width, int height) 
+    {
+        this.id = id;
+        this.type = type;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }  
+    
     public int getId() 
     {
         return id;

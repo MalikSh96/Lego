@@ -1,5 +1,6 @@
 package Test;
 
+import DBAccess.BrickMapper;
 import Temporary.Calculation;
 
 /**
@@ -8,9 +9,12 @@ import Temporary.Calculation;
  */
 public class Main 
 {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws ClassNotFoundException 
     {
-        Calculation c = new Calculation();
-        System.out.println("Testing... " + c.brickTotal(4, 22));
+//        Calculation c = new Calculation();
+//        System.out.println("Testing... " + c.brickTotalLengthBottom(4, 20));
+        
+        BrickMapper brick = new BrickMapper();
+        System.out.println("All " + brick.getAllBottoms());
     }
 }
