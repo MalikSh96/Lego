@@ -7,6 +7,8 @@ package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,8 @@ public class FrontController extends HttpServlet {
         } catch ( LoginSampleException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

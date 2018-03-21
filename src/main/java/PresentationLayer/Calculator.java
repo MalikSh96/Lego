@@ -26,7 +26,7 @@ public class Calculator extends Command {
         Calculation c = LogicFacade.Calculate(length); //lenght is wrong
         
         HttpSession session = request.getSession();
-        session.setAttribute("evenLegoPieces", c.getEven()); //save this in session
+        session.setAttribute("evenLegoPieces", c.getEvenLength()); //save this in session
         return null;
     }
     
