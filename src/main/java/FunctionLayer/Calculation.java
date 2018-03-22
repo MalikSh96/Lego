@@ -25,8 +25,7 @@ public class Calculation
     private ArrayList<Integer> evenWidth = new ArrayList<>();
     private ArrayList<Integer> totalBricks = new ArrayList<>();
     
-    //Temp
-    private ArrayList<Bricks> tb = new ArrayList<>();
+    
 
     public Calculation() throws ClassNotFoundException 
     {
@@ -36,13 +35,14 @@ public class Calculation
     }
         
     
-    //1. Calculate the total of bricks to be used for the bottom layer 1-3-5-7
-    //2. Calculate the total of bricks to be used for the layer above bottom 2-4-6-8
-    //3. Calculate the total of bricks to be used as the width of 1-3-5-7
-    //4.
-    //5. Find out how the second (above bottom) layer is gonna be structured... OR CALCULATE THE TOTSL SMOUNT OF BRICKS
+    //1. Calculate the total of bricks to be used for the bottom layer 1-3-5-7 etc
+    //2. Calculate the total of bricks to be used for the layer above bottom 2-4-6-8 etc
+    //3. Calculate the total of bricks to be used as the width of 1-3-5-7 etc
+    //4. Calculate the total of bricks to be used as the width of 2-4-6-8 etc
+    //5. Calculation of the total amount of bricks used
     
     //To calculate the amount of bricks to be used, just calculate two of the sides, then * them with 2, to cover the last two 
+    
     //1. The total of the length is calculated using the customers desired length and the length of the bricks chosen
     public ArrayList<Integer> brickTotalBottom(int customerHouseLength) throws ClassNotFoundException
     {
@@ -120,7 +120,7 @@ public class Calculation
         return evenLength;
     }
     
-    //3.
+    //3. Follows same idea as number 1
     public ArrayList<Integer> brickTotalWidth(int customerHouseWidth) throws ClassNotFoundException
     {
         int bigCounter = 0; //counts amount used
@@ -159,7 +159,7 @@ public class Calculation
         return unevenWidth; //returns the arraylist with the brick total
     }
     
-    //4.
+    //4. Follows same idea as number 2
     public ArrayList<Integer> brickTotalOverBottomWidth(int customerHouseWidth)
     {
         int mediumCounter = 0;
@@ -189,24 +189,26 @@ public class Calculation
         return evenWidth;
     }
     
-    //5.
+    //5. Calculates total amount of bricks, using input from the customer of 3 int parameters
     public int totalBricks(int customerLength, int customerWidth, int customerHeight) throws ClassNotFoundException
     {
         int total = 0; //brick total
         
         brickTotalBottom(customerLength);
-        brickTotalOverBottom(customerLength); //add the total of these two above together somehow^
+        brickTotalOverBottom(customerLength); //add the total of these two above together somehow^, OBS see added here below
+        
         brickTotalWidth(customerWidth);
         brickTotalOverBottomWidth(customerWidth);
         
         int brickCountLength = 0;
-        brickCountLength += totalCounterEven + totalCounterUneven;
+        brickCountLength += totalCounterEven + totalCounterUneven; //added here
         System.out.println("Brick count length " + brickCountLength);
         
         int brickCountWidth = 0;
-        brickCountWidth += totalCounterEvenWidth + totalCounterUnevenWidth;
+        brickCountWidth += totalCounterEvenWidth + totalCounterUnevenWidth; 
         System.out.println("Brick count width " + brickCountWidth);
-        total += (brickCountLength *  customerHeight * brickCountWidth) * 2;
+        
+        total += (brickCountLength *  customerHeight * brickCountWidth) * 2; //adds everything together
         System.out.println("What is total: " + total);
         
         //Store the total

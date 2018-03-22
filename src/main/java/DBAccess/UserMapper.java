@@ -15,16 +15,21 @@ import java.util.logging.Logger;
 
  @author kasper
  */
-public class UserMapper {
+public class UserMapper 
+{
 
-    public static void createUser( User user ) throws LoginSampleException {
-        try {
+    public static void createUser( User user ) throws LoginSampleException 
+    {
+        try 
+        {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
+            
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getEmail() );
             ps.setString( 2, user.getPassword() );
             ps.setString( 3, user.getRole() );
+            
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -35,22 +40,29 @@ public class UserMapper {
         }
     }
 
-    public static User login( String email, String password ) throws LoginSampleException {
-        try {
+    public static User login( String email, String password ) throws LoginSampleException 
+    {
+        try 
+        {
             Connection con = Connector.connection();
             String SQL = "SELECT id, role FROM Users "
                     + "WHERE email=? AND password=?";
+            
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
+            
             ResultSet rs = ps.executeQuery();
-            if ( rs.next() ) {
+            if (rs.next()) 
+            {
                 String role = rs.getString( "role" );
                 int id = rs.getInt( "id" );
                 User user = new User( email, password, role );
                 user.setId( id );
                 return user;
-            } else {
+            } 
+            else 
+            {
                 throw new LoginSampleException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -61,14 +73,16 @@ public class UserMapper {
     public User getUser(int id) throws ClassNotFoundException 
     {
         User u = null;
-        try {
+        try 
+        {
             Connection con = Connector.connection();
 
             String sql = "SELECT * FROM useradmin.users where id = '" + id + "'";
             PreparedStatement ps = con.prepareStatement( sql );
             ResultSet resultset = ps.executeQuery();
 
-            while (resultset.next()) {
+            while (resultset.next()) 
+            {
                 int userid = resultset.getInt("users.id");
                 String email = resultset.getString("email");
                 String userpassword = resultset.getString("password");
