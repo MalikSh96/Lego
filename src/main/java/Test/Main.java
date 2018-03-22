@@ -17,21 +17,17 @@ public class Main
     {
         Calculation c = new Calculation();
         UserMapper um = new UserMapper();
+        
         System.out.println("user: " + um.getUser(1));
         
+        OrderMapper om = new OrderMapper();
+        PreOrder o = new PreOrder(1, 20, 10, 1);
+        om.createPreOrder(o);
+        System.out.println("\nTotal: " + c.totalBricks(o));
         
-        //int res = c.brickTotalBottom(20);
-        //System.out.println("Bottom " + c.brickTotalBottom(20));
-        //System.out.println("Above bottom " + c.brickTotalOverBottom(20));
-        //System.out.println("\nWidth bottom " + c.brickTotalWidth(10));
-        //System.out.println("Width over bottom " + c.brickTotalOverBottomWidth(10));
-        //System.out.println("\nTotal: " + c.totalBricks(10, 10, 2));
+        BrickMapper brick = new BrickMapper();
+        System.out.println("\n\nAll " + brick.getAllBottoms());
         
-        
-        
-        //BrickMapper brick = new BrickMapper();
-        //System.out.println("\n\nAll " + brick.getAllBottoms());
-        
-        //System.out.println("... " + brick.totalLength("small"));
+        System.out.println("... " + brick.totalLength("small"));
     }
 }

@@ -190,15 +190,15 @@ public class Calculation
     }
     
     //5. Calculates total amount of bricks, using input from the customer of 3 int parameters
-    public int totalBricks(int customerLength, int customerWidth, int customerHeight) throws ClassNotFoundException
+    public int totalBricks(PreOrder ord) throws ClassNotFoundException
     {
         int total = 0; //brick total
         
-        brickTotalBottom(customerLength);
-        brickTotalOverBottom(customerLength); //add the total of these two above together somehow^, OBS see added here below
+        brickTotalBottom(ord.getLength());
+        brickTotalOverBottom(ord.getLength()); //add the total of these two above together somehow^, OBS see added here below
         
-        brickTotalWidth(customerWidth);
-        brickTotalOverBottomWidth(customerWidth);
+        brickTotalWidth(ord.getWidth());
+        brickTotalOverBottomWidth(ord.getWidth());
         
         int brickCountLength = 0;
         brickCountLength += totalCounterEven + totalCounterUneven; //added here
@@ -208,7 +208,7 @@ public class Calculation
         brickCountWidth += totalCounterEvenWidth + totalCounterUnevenWidth; 
         System.out.println("Brick count width " + brickCountWidth);
         
-        total += (brickCountLength *  customerHeight * brickCountWidth) * 2; //adds everything together
+        total += (brickCountLength *  ord.getHeight() * brickCountWidth) * 2; //adds everything together
         System.out.println("What is total: " + total);
         
         //Store the total

@@ -8,11 +8,26 @@ public class PreOrder
 {
     private int id; //id of order
     private int userId; //id of the user
-    private int brickTotal; //total amount of bricks used
     private int length; //length of the house
     private int width; //width of the house
     private int height; //height of the house
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
+    private int total;
+    
+    public PreOrder(int userId, int length, int width, int height) 
+    {
+        this.userId = userId;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    public PreOrder(int length, int width, int height) 
+    {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
 
     public int getId() 
     {
@@ -23,12 +38,7 @@ public class PreOrder
     {
         return userId;
     }
-
-    public int getBrickTotal() 
-    {
-        return brickTotal;
-    }
-
+    
     public int getLength() 
     {
         return length;
@@ -47,5 +57,10 @@ public class PreOrder
     public boolean isOrderConfirmed() 
     {
         return orderConfirmed;
+    }
+
+    public int getTotal() 
+    {
+        return total;
     }
 }

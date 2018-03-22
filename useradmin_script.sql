@@ -19,11 +19,10 @@ CREATE TABLE `users` (
 create table `preOrders` (
 `id` int auto_increment primary key,
 userID int not null,
-`brickTotal` int not null,
 `length` int not null, -- length of the house
 `width` int not null, -- width of the house
 `height` int not null, -- height of the house
-`orderConfirmed` boolean, 
+`orderConfirmed` boolean default false, 
 FOREIGN KEY (userID) REFERENCES users(`id`),
 `dates` datetime default current_timestamp
 );

@@ -26,31 +26,6 @@ public class User {
     private String password; // Should be hashed and all
     private String role;
 
-    @Override
-    public int hashCode() 
-    {
-        return password.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) 
-    {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
-        return true;
-    }
-
     public String getEmail() 
     {
         return email;

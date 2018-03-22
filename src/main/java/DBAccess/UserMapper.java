@@ -70,7 +70,7 @@ public class UserMapper
         }
     }
 
-    public User getUser(int id) throws ClassNotFoundException 
+    public static User getUser(int id) throws ClassNotFoundException 
     {
         User u = null;
         try 

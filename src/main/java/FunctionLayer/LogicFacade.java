@@ -8,21 +8,27 @@ import DBAccess.UserMapper;
  */
 public class LogicFacade {
 
-    public static User login( String email, String password ) throws LoginSampleException {
+    public static User login( String email, String password ) throws LoginSampleException 
+    {
         return UserMapper.login( email, password );
     } 
 
-    public static User createUser( String email, String password ) throws LoginSampleException {
+    public static User createUser( String email, String password ) throws LoginSampleException 
+    {
         User user = new User(email, password, "customer");
         UserMapper.createUser( user );
         return user;
     }
     
-    public static Calculation Calculate(int CustomerLength) throws ClassNotFoundException
+    public static User getUser(int id) throws ClassNotFoundException
+    {
+        return UserMapper.getUser(id);
+    }
+    
+    public static Calculation Calculate(PreOrder order) throws ClassNotFoundException
     {
         Calculation c = new Calculation();
-        c.brickTotalBottom(CustomerLength);
-        c.brickTotalOverBottom(CustomerLength);
+        c.totalBricks(order);
         return c;
     }
 }
