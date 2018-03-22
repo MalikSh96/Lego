@@ -1,7 +1,5 @@
 package FunctionLayer;
 
-import java.util.Objects;
-
 /**
  * The purpose of User is to...
  * @author kasper

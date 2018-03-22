@@ -44,7 +44,7 @@ public class Calculation
     //To calculate the amount of bricks to be used, just calculate two of the sides, then * them with 2, to cover the last two 
     
     //1. The total of the length is calculated using the customers desired length and the length of the bricks chosen
-    public ArrayList<Integer> brickTotalBottom(int customerHouseLength) throws ClassNotFoundException
+    public ArrayList<Integer> brickUnevenLayerLength(int customerHouseLength) throws ClassNotFoundException
     {
         /*
         The length of the house will be a total of dots, so for example if a customer
@@ -91,7 +91,7 @@ public class Calculation
     }
     
     //2. Same as method above, only difference is that no big bricks is used
-    public ArrayList<Integer> brickTotalOverBottom(int customerHouseLength)
+    public ArrayList<Integer> brickEvenLayerLength(int customerHouseLength)
     {
         int mediumCounter = 0;
         int smallCounter = 0;
@@ -121,7 +121,7 @@ public class Calculation
     }
     
     //3. Follows same idea as number 1
-    public ArrayList<Integer> brickTotalWidth(int customerHouseWidth) throws ClassNotFoundException
+    public ArrayList<Integer> brickUnevenLayerWidth(int customerHouseWidth) throws ClassNotFoundException
     {
         int bigCounter = 0; //counts amount used
         int mediumCounter = 0;
@@ -160,7 +160,7 @@ public class Calculation
     }
     
     //4. Follows same idea as number 2
-    public ArrayList<Integer> brickTotalOverBottomWidth(int customerHouseWidth)
+    public ArrayList<Integer> brickEvenLayerWidth(int customerHouseWidth)
     {
         int mediumCounter = 0;
         int smallCounter = 0;
@@ -194,11 +194,11 @@ public class Calculation
     {
         int total = 0; //brick total
         
-        brickTotalBottom(ord.getLength());
-        brickTotalOverBottom(ord.getLength()); //add the total of these two above together somehow^, OBS see added here below
+        brickUnevenLayerLength(ord.getLength());
+        brickEvenLayerLength(ord.getLength()); //add the total of these two above together somehow^, OBS see added here below
         
-        brickTotalWidth(ord.getWidth());
-        brickTotalOverBottomWidth(ord.getWidth());
+        brickUnevenLayerWidth(ord.getWidth());
+        brickEvenLayerWidth(ord.getWidth());
         
         int brickCountLength = 0;
         brickCountLength += totalCounterEven + totalCounterUneven; //added here

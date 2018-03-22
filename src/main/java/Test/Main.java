@@ -5,7 +5,6 @@ import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 import FunctionLayer.Calculation;
 import FunctionLayer.PreOrder;
-import FunctionLayer.User;
 
 /**
  *
@@ -18,7 +17,7 @@ public class Main
         Calculation c = new Calculation();
         UserMapper um = new UserMapper();
         
-        System.out.println("user: " + um.getUser(1));
+        System.out.println("user: " + um.getUse(1));
         
         OrderMapper om = new OrderMapper();
         PreOrder o = new PreOrder(1, 20, 10, 1);

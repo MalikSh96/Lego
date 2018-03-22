@@ -12,7 +12,6 @@ public class PreOrder
     private int width; //width of the house
     private int height; //height of the house
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
-    private int total;
     
     public PreOrder(int userId, int length, int width, int height) 
     {
@@ -57,10 +56,5 @@ public class PreOrder
     public boolean isOrderConfirmed() 
     {
         return orderConfirmed;
-    }
-
-    public int getTotal() 
-    {
-        return total;
     }
 }
