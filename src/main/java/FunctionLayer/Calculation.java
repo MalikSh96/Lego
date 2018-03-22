@@ -23,6 +23,10 @@ public class Calculation
     private ArrayList<Integer> evenLength = new ArrayList<>(); //above bottom
     private ArrayList<Integer> unevenWidth = new ArrayList<>();
     private ArrayList<Integer> evenWidth = new ArrayList<>();
+    private ArrayList<Integer> totalBricks = new ArrayList<>();
+    
+    //Temp
+    private ArrayList<Bricks> tb = new ArrayList<>();
 
     public Calculation() throws ClassNotFoundException 
     {
@@ -188,7 +192,6 @@ public class Calculation
     //5.
     public int totalBricks(int customerLength, int customerWidth, int customerHeight) throws ClassNotFoundException
     {
-        ArrayList<Integer> totals = new ArrayList<>(); //just temporary, not sure if will be used
         int total = 0; //brick total
         
         brickTotalBottom(customerLength);
@@ -207,7 +210,7 @@ public class Calculation
         System.out.println("What is total: " + total);
         
         //Store the total
-        totals.add(total);
+        totalBricks.add(total);
         
         return total;
     }
@@ -222,13 +225,18 @@ public class Calculation
         return evenLength;
     }
 
-    public ArrayList<Integer> getUnevenWidth() {
+    public ArrayList<Integer> getUnevenWidth() 
+    {
         return unevenWidth;
     }
 
-    public ArrayList<Integer> getEvenWidth() {
+    public ArrayList<Integer> getEvenWidth() 
+    {
         return evenWidth;
     }
-    
-    
+
+    public ArrayList<Integer> getTotalBricks() 
+    {
+        return totalBricks;
+    }
 }

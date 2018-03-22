@@ -1,7 +1,10 @@
 package Test;
 
 import DBAccess.BrickMapper;
+import DBAccess.OrderMapper;
 import FunctionLayer.Calculation;
+import FunctionLayer.PreOrder;
+import FunctionLayer.User;
 
 /**
  *
@@ -18,6 +21,7 @@ public class Main
         //System.out.println("\nWidth bottom " + c.brickTotalWidth(10));
         //System.out.println("Width over bottom " + c.brickTotalOverBottomWidth(10));
         System.out.println("\nTotal: " + c.totalBricks(10, 10, 2));
+
         
         BrickMapper brick = new BrickMapper();
         System.out.println("\n\nAll " + brick.getAllBottoms());

@@ -1,7 +1,6 @@
 package DBAccess;
 
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
+import FunctionLayer.PreOrder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,16 +13,20 @@ import java.sql.Statement;
  */
 public class OrderMapper 
 {
-     public static void createOrderID(User user)
+     public void createPreOrder(PreOrder ord)
      {
         int orderId = 0;
         try 
         {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO preOrders (userID) VALUES (?)";
+            String SQL = "INSERT INTO preOrders (userID, brickTotal, length, width, height) VALUES (?)";
             
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS ); 
-            ps.setInt(1, user.getId()); //user id
+            ps.setInt(1, ord.getUserId()); //user id
+            ps.setInt(2, ord.getBrickTotal());
+            ps.setInt(3, ord.getLength());
+            ps.setInt(4, ord.getWidth());
+            ps.setInt(5, ord.getHeight());
             
             System.out.println("Check sql order " + SQL);
             
@@ -37,7 +40,7 @@ public class OrderMapper
                 System.out.println("Debug " + orderId);
                 
                 /*
-                Orderline in here missing!
+                Orderline in here missing??
                 */
             }
         } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
@@ -45,5 +48,6 @@ public class OrderMapper
         }
     }
      
-     //make an orderline method....
+    //make an orderline method perhaps....
+    
 }
