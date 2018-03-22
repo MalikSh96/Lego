@@ -6,13 +6,13 @@ package FunctionLayer;
  */
 public class PreOrder 
 {
-    private int id;
-    private int userId;
-    private int brickTotal;
-    private int length;
-    private int width;
-    private int height;
-    private boolean orderConfirmed;
+    private int id; //id of order
+    private int userId; //id of the user
+    private int brickTotal; //total amount of bricks used
+    private int length; //length of the house
+    private int width; //width of the house
+    private int height; //height of the house
+    private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
 
     public int getId() 
     {

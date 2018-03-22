@@ -22,7 +22,8 @@ userID int not null,
 `brickTotal` int not null,
 `length` int not null, -- length of the house
 `width` int not null, -- width of the house
-`height` int not null, -- height of the house 
+`height` int not null, -- height of the house
+`orderConfirmed` boolean, 
 FOREIGN KEY (userID) REFERENCES users(`id`),
 `dates` datetime default current_timestamp
 );

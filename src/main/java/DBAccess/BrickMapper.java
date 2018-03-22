@@ -47,6 +47,7 @@ public class BrickMapper
     {
         Bricks b = new Bricks();
         int total = 0;
+
         try 
         {
             Connection con = Connector.connection();
@@ -59,6 +60,8 @@ public class BrickMapper
             {
                 String name = resultset.getString("type");
                 int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
                 b.setLength(length);
                 if(name.equals(type))
                 {
