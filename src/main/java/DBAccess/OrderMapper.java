@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -73,5 +75,74 @@ public class OrderMapper
         } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
             throw new Error( ex.getMessage() );
         }
+    }
+    
+    public List<PreOrder> History(PreOrder order)
+    {
+        List<PreOrder> history = new ArrayList<>();
+        PreOrder ord = null;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM useradmin.preorders where userID = " + order.getUserId();
+            
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            
+            while(resultset.next())
+            {   
+                int id = resultset.getInt("id");
+                int userID = resultset.getByte("userID");
+                int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
+                
+                if(userID == order.getUserId())
+                {
+                    ord = new PreOrder(userID, length, width, height);
+                    history.add(ord);
+                }
+            }
+            System.out.println("sql syntax ok? " + SQL);
+            
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        
+        return history;
+    }
+    public static List<PreOrder> orderHistory(PreOrder order)
+    {
+        List<PreOrder> history = new ArrayList<>();
+        PreOrder ord = null;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM useradmin.preorders where userID = " + order.getUserId();
+            
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            
+            while(resultset.next())
+            {   
+                int id = resultset.getInt("id");
+                int userID = resultset.getByte("userID");
+                int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
+                
+                if(userID == order.getUserId())
+                {
+                    ord = new PreOrder(userID, length, width, height);
+                    history.add(ord);
+                }
+            }
+            System.out.println("sql syntax ok? " + SQL);
+            
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        
+        return history;
     }
 }

@@ -57,4 +57,10 @@ public class PreOrder
     {
         return orderConfirmed;
     }
+
+    @Override
+    public String toString() 
+    {
+        return "\nOrderhistory \nuserId: " + userId + "\nlength: " + length + "\nwidth: " + width + "\nheight: " + height;
+    }
 }

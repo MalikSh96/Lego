@@ -19,14 +19,13 @@ public class Calculation
     private int totalCounterUnevenWidth = 0;
     private int totalCounterEvenWidth = 0;
     
-    private ArrayList<Integer> unevenLength = new ArrayList<>(); //bottom layer
-    private ArrayList<Integer> evenLength = new ArrayList<>(); //above bottom
+    private ArrayList<Integer> unevenLength = new ArrayList<>(); //bottom layer 1-3-5-7 etc
+    private ArrayList<Integer> evenLength = new ArrayList<>(); //above bottom 2-4-6-8 etc
     private ArrayList<Integer> unevenWidth = new ArrayList<>();
     private ArrayList<Integer> evenWidth = new ArrayList<>();
     private ArrayList<Integer> totalBricks = new ArrayList<>();
     
     
-
     public Calculation() throws ClassNotFoundException 
     {
         bigL = b.totalLength("big");

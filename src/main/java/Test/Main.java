@@ -20,10 +20,14 @@ public class Main
         System.out.println("user: " + um.getUse(1));
         
         OrderMapper om = new OrderMapper();
-        PreOrder o = new PreOrder(1, 20, 10, 1);
+        PreOrder o = new PreOrder(1, 12, 12, 6);
         om.createPreOrder(o);
         System.out.println("\nTotal: " + c.totalBricks(o));
         
+        System.out.println("\n\n");
+        System.out.println("Order history " + om.History(o));
+        System.out.println("\n\n");
+              
         BrickMapper brick = new BrickMapper();
         System.out.println("\n\nAll " + brick.getAllBottoms());
         

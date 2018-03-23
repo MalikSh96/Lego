@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
+import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
@@ -31,6 +32,11 @@ public class LogicFacade
         PreOrder order = new PreOrder(o.getLength(), o.getWidth(), o.getHeight());
         OrderMapper.createOrder(order);
         return order;
+    }
+    
+    public static List<PreOrder> orderHistory(PreOrder o)
+    {
+        return OrderMapper.orderHistory(o);
     }
     
     public static Calculation Calculate(PreOrder order) throws ClassNotFoundException
